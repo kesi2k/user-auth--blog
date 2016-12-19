@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+    <h1>Edit or delete this comment</h1>
+      <br>
+          <hr>
+          <form method = 'post'>
+            <label>
+              <div>Comment</div>
+              <textarea name = 'comment' value = ' '>{{comment.comment}}</textarea>
+            </label>
+            <div class = 'label'> {{error}}</div>
+            <br>
+            <input type="submit" name="purpose" value="edit">
+            <input type="submit" name="purpose" value="delete">
+            <a href="/blog/{{comment.postId}}"> Cancel </a>
+
+          </form>
+
+
+
+{% endblock %}
+
+

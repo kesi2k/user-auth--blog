@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <style type="text/css">
+      .label {text-align: left}
+      textarea{
+          width: 500px;
+          height:400px;
+          font-size:15px;
+      }
+    </style>
+      <link rel="stylesheet" type="text/css" href="C:\Users\Kesi\Desktop\Documents\Computer Science\Udacity\Intro to backend\user-auth-blog\templates\style.css">
+    {% block head %}
+      <title>{% block title %}{% endblock %} - Blog</title>
+    {% endblock %}
+
+  </head>
+
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <br>
+    <div id="footer">
+        {% block footer %}
+
+        {% endblock %}
+    </div>
+  </body>
+
+</html>

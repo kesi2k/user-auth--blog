@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+  <h1>Welcome to the blog page</h1>
+    <a href="/signup">Signup new users</a>
+    <br>
+    <a href="/login">Login registered users</a>
+
+      <br>
+      <br>
+
+          <hr>
+
+
+          {% for post in posts %}
+          <div class="title">
+            <div class="blog-time">{{post.created}}</div>
+            <div class="blog-title">{{post.title}}</div>
+            <pre class="blog-post">{{post.entry}}</pre>
+
+            <br>
+            <div class="author">posted by {{post.author}}</div>
+            <p>post ID is {{post.key().id()}}</p>
+            <div>{{post.likes}} likes</div>
+            <br>
+
+             <br>
+            <hr>
+          </div>
+          <br>
+          {% endfor %}
+
+
+
+{% endblock %}

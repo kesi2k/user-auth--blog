@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+    font-family: sans-serif;
+    width: 800px;
+    background-color: pink;
+    color: #333;
+    margin: 0 auto;
+}
