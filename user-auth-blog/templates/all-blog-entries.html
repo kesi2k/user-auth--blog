@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+   <h1>Blog page</h1>
+      <h3>Logged in as {{user.username}}</h3>
+      <h3><a href="/welcome">Home Page </a></h3>
+      <h3><a href="/blog/newpost" style="display:block">Create a new post</a></h3>
+
+        <br>
+
+
+            <hr>
+
+
+            {% for post in posts %}
+            <div class="title">
+              <div class="blog-time">{{post.created}}</div>
+              <div class="blog-title">{{post.title}}</div>
+              <pre class="blog-post">{{post.entry}}</pre>
+
+              <br>
+              <div class="author">posted by {{post.author}}</div>
+              <p>post ID is {{post.key().id()}}</p>
+              <div>{{post.likes}} likes</div>
+              <br>
+
+              {% if user.username == post.author %}
+              <form method = "GET" action="/edit/{{post.key().id()}}" style="display: inline;">
+              <input type="submit" value="Edit or delete post" />
+              </form>
+              {% endif %}
+
+
+              {% if user.username != post.author %}
+              <form method = "GET" action="/likepost" style="display: inline;">
+              <input type="hidden" name="post_id" value="{{post.key().id()}}" />
+                <button type="submit" name="like" value="Like">
+                  {% if user.liked_post(user.key().id(), post.key().id()) %}
+                    Unlike
+                    {% else %}
+                    Like
+                  {% endif %}
+
+                </button>
+              </form>
+              {% endif %}
+              <form method="GET" action="/blog/{{post.key().id()}}" style="display:inline" >
+                <button>Comment or view comments</button>
+              </form>
+
+               <br>
+              <hr>
+            </div>
+            <br>
+            {% endfor %}
+
+
+{% endblock %}
+
+
+
+

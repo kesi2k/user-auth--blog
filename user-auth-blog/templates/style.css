@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label {text-align: left}
+
+textarea{
+    width: 500px;
+    height:400px;
+    font-size:15px;
+}

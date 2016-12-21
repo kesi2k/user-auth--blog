@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+    <h1>Blog entry page</h1>
+      <br>
+          <form method = 'post'>
+            <label>
+              <div>Title</div>
+              <input type = 'text' name = 'title' value = '{{title}}'>
+            </label>
+            <label>
+              <div>Post</div>
+              <textarea name = 'entry' value = '{{title}}'>{{title}}</textarea>
+            </label>
+            <div class = 'error'> {{error}}</div>
+
+            <input type = 'submit'>
+            <a href="/blog"> Cancel </a>
+
+
+
+          </form>
+
+
+{% endblock %}
+
+
+
+
+

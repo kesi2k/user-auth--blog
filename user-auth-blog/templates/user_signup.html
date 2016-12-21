@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+    <h2>Sign Up</h2>
+    <form method = 'post'>
+      <table>
+        <tr><td class = 'label'>
+        Username:
+        </td><td> <input type = "text" placeholder = "" name = "username" value = "{{username}}"></td>
+        <td>{{error_username}}</td>
+        </tr>
+
+
+        <tr><td class = 'label'>Password:
+        </td><td> <input type = "password" placeholder = "" name = "password"></td>
+        <td>{{error_password}}</td>
+        </tr>
+
+
+        <tr><td class = 'label'>Verify passowrd:
+        </td><td><input type = "password" placeholder = "" name = "verify"></td>
+        <td>{{error_verify}}</td>
+        </tr>
+
+
+        <tr><td class = 'label'>Email(optional):
+        </td><td> <input type = "text" placeholder = "" name = "email" value = "{{email}}"></td>
+        <td>{{error_emial}}</td>
+        </tr>
+
+
+      </table>
+
+      <br>
+      <input type="submit">
+    </form>
+    <br>
+    <a href="/login">Login registered users</a>
+    <br>
+    <a href="/blog">Blog page</a>
+  </body>
+
+
+{% endblock %}

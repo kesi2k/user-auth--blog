@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+    <h3>Post by user {{author}}</h3>
+      <br>
+
+
+          <hr>
+
+
+          <div class = 'title'>
+            <div class = 'blog-time'>{{post.created}}</div>
+            <div class = 'blog-title'>{{post.title}}</div>
+            <pre class = 'blog-post'>{{post.entry}}</pre>
+            <hr>
+          </div>
+      <br>
+      <br>
+          <h3 style="text-align:center">Comments</h3>
+            {% for comment in comments %}
+            <p style="text-align:center" >{{comment.comment}}</p>
+            <p style="text-align:center" >{{comment.author}} commented</p>
+              {% if userId == comment.userid %}
+                <form method = "GET" action="/editcomment/{{comment.key().id()}}" style="text-align:center">
+                <input type="submit" value="Edit or delete comment" />
+                </form>
+              {% endif %}
+            <hr>
+            {% endfor %}
+
+      <br>
+      <br>
+          <form method = "post">
+            <label>
+              <div>Comment</div>
+              <textarea name = "comment" value = "" style="height: 200px; width:325px"></textarea>
+            </label>
+            <div class = 'error' style="color:red"><p>{{error}}</p>
+            </div>
+            <input type = 'submit'>
+          </form>
+      <br>
+      <br>
+
+    <a href="/blog" style="display:block">Blog front page</a>
+
+
+{% endblock %}
